@@ -1,0 +1,2 @@
+[2020-03-17 16:50:44] console.ERROR: Error thrown while running command "doctrine:database:create". Message: "An exception occurred in driver: SQLSTATE[HY000] [2002] Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée. " null []
+[2020-03-17 16:50:44] console.DEBUG: Command "doctrine:database:create" exited with code "1" {"command":"doctrine:database:create","code":1} []
