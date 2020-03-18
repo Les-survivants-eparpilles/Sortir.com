@@ -44,7 +44,7 @@ class Sortie
     private $nbInscriptioonsMax;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $infosSortie;
 
@@ -76,6 +76,11 @@ class Sortie
      * @ORM\JoinColumn(nullable=false)
      */
     private $lieu;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
 
 
     public function __construct()
@@ -160,17 +165,6 @@ class Sortie
         return $this;
     }
 
-    public function getEtat(): ?string
-    {
-        return $this->etat;
-    }
-
-    public function setEtat(string $etat): self
-    {
-        $this->etat = $etat;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Participant[]
@@ -234,14 +228,26 @@ class Sortie
         return $this;
     }
 
-    public function getCategorieEtat(): ?Etat
+    public function getEtat(): ?Etat
     {
-        return $this->categorieEtat;
+        return $this->etat;
     }
 
-    public function setCategorieEtat(?Etat $categorieEtat): self
+    public function setEtat(?Etat $etat): self
     {
-        $this->categorieEtat = $categorieEtat;
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }

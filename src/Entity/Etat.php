@@ -62,7 +62,7 @@ class Etat
     {
         if (!$this->relation->contains($relation)) {
             $this->relation[] = $relation;
-            $relation->setCategorieEtat($this);
+            $relation->setEtat($this);
         }
 
         return $this;
@@ -73,8 +73,8 @@ class Etat
         if ($this->relation->contains($relation)) {
             $this->relation->removeElement($relation);
             // set the owning side to null (unless already changed)
-            if ($relation->getCategorieEtat() === $this) {
-                $relation->setCategorieEtat(null);
+            if ($relation->getEtat() === $this) {
+                $relation->setEtat(null);
             }
         }
 

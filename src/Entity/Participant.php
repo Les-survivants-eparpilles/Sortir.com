@@ -34,7 +34,7 @@ class Participant
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $mail;
 
@@ -58,6 +58,16 @@ class Participant
      * @ORM\JoinColumn(nullable=false)
      */
     private $site;
+
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $pseudo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
 
     public function __construct()
     {
@@ -180,6 +190,30 @@ class Participant
     public function setSite(?Site $site): self
     {
         $this->site = $site;
+
+        return $this;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): self
+    {
+        $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
