@@ -6,6 +6,7 @@
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /var/
+/.idea/**
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
