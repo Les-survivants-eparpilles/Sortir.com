@@ -49,7 +49,7 @@ class Participant
     private $actif;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Sortie", mappedBy="organisateur")
+     * @ORM\OneToMany(targetEntity="App\Entity\Sortie", mappedBy="organisateur", cascade={"remove"})
      */
     private $sorties;
 
