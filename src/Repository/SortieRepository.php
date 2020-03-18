@@ -47,4 +47,26 @@ class SortieRepository extends ServiceEntityRepository
         ;
     }
     */
+	public function finAllPerso()
+	{
+		$qb = $this->createQueryBuilder('a');
+		$qb->addSelect('s')
+			->addSelect('par')
+			->addSelect('si')
+			->addSelect('l')
+			->addSelect('v')
+			->addSelect('e')
+			->join('s.organisateur', 'par')
+			->join('s.site_id', 'si')
+			->join('s.lieu_id', 'l')
+			->join('s.etat_id', 'e')
+			->join('l.ville_id', 'v')
+			->orderBy("s.date_heure_debut", "asc");
+
+		// On crée l'objet Query
+		$query = $qb->getQuery();
+
+		// On retourne le résultat
+		return new Paginator($query);
+	}
 }

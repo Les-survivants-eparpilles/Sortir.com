@@ -59,6 +59,9 @@ interface ObjectRepository
      * @return string
      */
     public function getClassName();
+
+	public function finAllPerso();
+
 }
 
 interface_exists(\Doctrine\Common\Persistence\ObjectRepository::class);
