@@ -87,6 +87,11 @@ class Sortie
      */
     private $motifAnnulation;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $ouverteOuNon;
+
 
     public function __construct()
     {
@@ -265,6 +270,18 @@ class Sortie
     public function setMotifAnnulation(?string $motifAnnulation): self
     {
         $this->motifAnnulation = $motifAnnulation;
+
+        return $this;
+    }
+
+    public function getOuverteOuNon(): ?bool
+    {
+        return $this->ouverteOuNon;
+    }
+
+    public function setOuverteOuNon(bool $ouverteOuNon): self
+    {
+        $this->ouverteOuNon = $ouverteOuNon;
 
         return $this;
     }
