@@ -7,8 +7,8 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     null,
     [
         'stdClass' => [
-            'length' => [
-                255,
+            'type' => [
+                'text',
             ],
             'nullable' => [
                 true,

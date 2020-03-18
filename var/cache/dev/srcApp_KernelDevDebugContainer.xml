@@ -332,6 +332,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\PhotoRepository" class="App\Repository\PhotoRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\SiteRepository" class="App\Repository\SiteRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -3431,7 +3435,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.Xl9K4KC"/>
+      <argument type="service" id=".service_locator.RdbCroW"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4644,6 +4648,8 @@
     <service id=".abstract.instanceof.App\Repository\LieuRepository" class="App\Repository\LieuRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ParticipantRepository" class="App\Repository\ParticipantRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ParticipantRepository" class="App\Repository\ParticipantRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PhotoRepository" class="App\Repository\PhotoRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\PhotoRepository" class="App\Repository\PhotoRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SiteRepository" class="App\Repository\SiteRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\SiteRepository" class="App\Repository\SiteRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SortieRepository" class="App\Repository\SortieRepository" autowire="true" abstract="true"/>
@@ -4916,12 +4922,13 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.Xl9K4KC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.RdbCroW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\EtatRepository" type="service" id="App\Repository\EtatRepository"/>
         <argument key="App\Repository\LieuRepository" type="service" id="App\Repository\LieuRepository"/>
         <argument key="App\Repository\ParticipantRepository" type="service" id="App\Repository\ParticipantRepository"/>
+        <argument key="App\Repository\PhotoRepository" type="service" id="App\Repository\PhotoRepository"/>
         <argument key="App\Repository\SiteRepository" type="service" id="App\Repository\SiteRepository"/>
         <argument key="App\Repository\SortieRepository" type="service" id="App\Repository\SortieRepository"/>
         <argument key="App\Repository\VilleRepository" type="service" id="App\Repository\VilleRepository"/>
