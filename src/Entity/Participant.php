@@ -69,6 +69,11 @@ class Participant
      */
     private $photo;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $motDePasse;
+
     public function __construct()
     {
         $this->sorties = new ArrayCollection();
@@ -214,6 +219,18 @@ class Participant
     public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getMotDePasse(): ?string
+    {
+        return $this->motDePasse;
+    }
+
+    public function setMotDePasse(string $motDePasse): self
+    {
+        $this->motDePasse = $motDePasse;
 
         return $this;
     }
