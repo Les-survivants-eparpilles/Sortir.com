@@ -14,8 +14,16 @@ if (!\class_exists(srcApp_KernelDevDebugContainer::class, false)) {
     \class_alias(\ContainerMcOp2Ix\srcApp_KernelDevDebugContainer::class, srcApp_KernelDevDebugContainer::class, false);
 }
 
+<<<<<<< Updated upstream
 return new \ContainerMcOp2Ix\srcApp_KernelDevDebugContainer([
     'container.build_hash' => 'McOp2Ix',
     'container.build_id' => 'ed200337',
     'container.build_time' => 1584535554,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerMcOp2Ix');
+=======
+return new \Container9AICkED\srcApp_KernelDevDebugContainer([
+    'container.build_hash' => '9AICkED',
+    'container.build_id' => 'fc4ad45a',
+    'container.build_time' => 1584538788,
+], __DIR__.\DIRECTORY_SEPARATOR.'Container9AICkED');
+>>>>>>> Stashed changes

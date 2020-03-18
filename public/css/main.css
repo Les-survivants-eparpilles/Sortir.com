@@ -1,0 +1,53 @@
+.my-primary{
+    color: rgb(0, 0, 0);
+    background-color: #4d4d4d;
+}
+
+html{
+    display: inline-block;
+    height: 100%;
+}
+#logo{
+    display: inline-block;
+}
+header h1{
+    display: inline-block;
+    font-family: 'Anton', sans-serif;
+    margin-top: 0%;
+    float: right;
+    font-size: 350%;
+    color: #c1c1c1;
+}
+h1{
+    font-family: 'Anton', sans-serif;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: #517a3f;
+}
+header{
+    background-color: #d0d0d0;
+}
+header img{
+    display: inline-block;
+}
+
+footer{
+    clear: both;
+    position: relative;
+    height: 200px;
+    text-align: center;
+    margin-top: 200px;
+}
+
+main{
+    margin-top: 2%;
+}
+
+main h1{
+    margin-bottom: 2%;
+}
+
+div.row a{
+    margin-right: 1%;
+}
