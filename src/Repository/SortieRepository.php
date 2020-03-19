@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Sortie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method Sortie|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,7 +48,7 @@ class SortieRepository extends ServiceEntityRepository
         ;
     }
     */
-	public function finAllPerso()
+	public function findAllPersonaliser()
 	{
 		$qb = $this->createQueryBuilder('a');
 		$qb->addSelect('s')

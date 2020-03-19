@@ -60,7 +60,7 @@ interface ObjectRepository
      */
     public function getClassName();
 
-	public function finAllPerso();
+
 
 }
 

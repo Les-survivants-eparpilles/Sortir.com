@@ -11,14 +11,14 @@ class SortieController extends AbstractController
 {
     /**
      * Liste des sorties
-     * @Route("/sortie", name="sortie")
+     * @Route("/listeSortie", name="sortie_liste")
      */
-    public function liste_Sortie(SortieRepository $sortieRepo)
+    public function liste(SortieRepository $sortieRepo)
     {
     	//récupérer la liste des sorties dans la bases ainsi que toutes leurs informations
 	    $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);
 
-	    $sorties = $sortieRepo->finAllPerso();
+	    $sorties = $sortieRepo->findAllPersonaliser();
 
 
 
