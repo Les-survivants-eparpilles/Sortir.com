@@ -31,21 +31,27 @@ class SortirFixtures extends Fixture
         //Remplissage de la table Etat
         $etat1 = new Etat();
         $etat1->setLibelle("Créée");
+        $etat1->setId(1);
         $manager->persist($etat1);
         $etat2 = new Etat();
         $etat2->setLibelle("Ouverte");
+        $etat2->setId(2);
         $manager->persist($etat2);
         $etat3 = new Etat();
         $etat3->setLibelle("Clôturée");
+        $etat3->setId(3);
         $manager->persist($etat3);
         $etat4 = new Etat();
         $etat4->setLibelle("Activité en cours");
+        $etat4->setId(4);
         $manager->persist($etat4);
         $etat5 = new Etat();
         $etat5->setLibelle("Passée");
+        $etat5->setId(5);
         $manager->persist($etat5);
         $etat6 = new Etat();
         $etat6->setLibelle("Annulée");
+	    $etat6->setId(6);
         $manager->persist($etat6);
 
         //Remplissage de la table Ville
