@@ -64,28 +64,6 @@ class ParticipantController extends AbstractController
 		return $this->render("participant/autreProfil.html.twig", ['participant' => $participant]);
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Détail de l'article
      * @Route("/monProfil", name="participant_monProfil",
