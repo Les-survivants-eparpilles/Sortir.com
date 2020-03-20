@@ -45,6 +45,24 @@ class ParticipantController extends AbstractController
 
 		return $this->render('participant/register.html.twig', ['registerForm' => $registerForm->createView()]);
 	}
+
+	/**
+	 * Récupére un participant en BDD par son ID pour l'affichage du profil
+	 * @Route("/profil/{id}", name="participant_autreProfil")
+	 * @param Request $request
+	 * @param $id
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function autreProfil(request $request ,$id)
+	{
+		//récupérer le detail de l'article dans la BDD
+		$participantRepo = $this->getDoctrine()->getRepository(Participant::class);
+		$participant = $participantRepo->find($id);
+		if ($participant == null){
+			throw $this->createNotFoundException("Profil inconnu");
+		}
+		return $this->render("participant/autreProfil.html.twig", ['participant' => $participant]);
+	}
 }
 
 
