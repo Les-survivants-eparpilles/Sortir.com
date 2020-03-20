@@ -17,11 +17,14 @@
             <img src="{{ asset('img/logo.png') }}">
             <h1>Sortir.com</h1>
         </div>
+
         {{ include('inc/_navbar.html.twig') }}
     </header>
 
     <main>
-        <div id="msg">
+        {% block main %}
+        {% endblock %}
+            <div id="msg">
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
                     <div class="alert alert-{{ label }}">
