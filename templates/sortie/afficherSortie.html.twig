@@ -1,0 +1,27 @@
+{% extends("base.html.twig") %}
+
+{% block title %}
+    Sortie.com
+{% endblock %}
+
+{% block main %}
+
+    <h1 class="display-4 text-center">{{sorties.getNom()}}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ include('inc/_detailSortieCol1.html.twig') }}
+            </div>
+            <div class="col">
+                {{ include('inc/_detailSortieCol2.html.twig') }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{ include('inc/_listeParticipants.html.twig') }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

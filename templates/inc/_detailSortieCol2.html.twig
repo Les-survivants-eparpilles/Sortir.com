@@ -1,0 +1,28 @@
+<table class="table table-borderless">
+    <tbody>
+    <tr>
+        <th scope="row">Ville organisatrice:</th>
+        <td>{{sorties.getNom()}}</td>
+    </tr>
+    <tr>
+        <th scope="row">Lieu:</th>
+        <td>{{sorties.getDateHeureDebut() | date('d/m/Y H:i')}}</td>
+    </tr>
+    <tr>
+        <th scope="row">Rue:</th>
+        <td>{{sorties.getDateLimiteInscription() | date('d/m/Y')}}</td>
+    </tr>
+    <tr>
+        <th scope="row">Code postal:</th>
+        <td>{{sorties.getDuree()}} minutes</td>
+    </tr>
+    <tr>
+        <th scope="row">Latitude:</th>
+        <td>{{sorties.getInfosSortie()}} </td>
+    </tr>
+    <tr>
+        <th scope="row">Longitude:</th>
+        <td>{{sorties.getInfosSortie()}} </td>
+    </tr>
+    </tbody>
+</table>

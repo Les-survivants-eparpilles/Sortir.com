@@ -1,0 +1,25 @@
+<table class="table table-borderless">
+
+    <tbody>
+    <tr>
+        <th scope="row">Nom de la sortie:</th>
+        <td>{{sorties.getNom()}}</td>
+    </tr>
+    <tr>
+        <th scope="row">Date et heure de la sortie:</th>
+        <td>{{sorties.getDateHeureDebut() | date('d/m/Y H:i')}}</td>
+    </tr>
+    <tr>
+        <th scope="row">Date limite d'inscription:</th>
+        <td>{{sorties.getDateLimiteInscription() | date('d/m/Y')}}</td>
+    </tr>
+    <tr>
+        <th scope="row">Durée:</th>
+        <td>{{sorties.getDuree()}} minutes</td>
+    </tr>
+    <tr>
+        <th scope="row">Descritpion et info:</th>
+        <td>{{sorties.getInfosSortie()}} </td>
+    </tr>
+    </tbody>
+</table>
