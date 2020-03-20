@@ -45,6 +45,64 @@ class ParticipantController extends AbstractController
 
 		return $this->render('participant/register.html.twig', ['registerForm' => $registerForm->createView()]);
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Détail de l'article
+     * @Route("/monProfil", name="participant_monProfil",
+     *     methods={"GET", "POST"})
+     */
+    public function monProfil(Request $request, UserPasswordEncoderInterface $encoder, EntityManagerInterface $em) {
+
+        //Récupération de l'utilisateur courant
+        $user = $this->getUser();
+
+        $registerForm = $this->createForm(RegisterType::class, $user);
+        $registerForm->handleRequest($request);
+        if ($registerForm->isSubmitted() && $registerForm->isValid()){
+            $password = $encoder->encodePassword($user, $user->getPassword());
+            $user->setMotDePasse($password);
+            $user->setMotDePasse($password);
+            $user->setAdministrateur(0);
+            $user->setActif(1);
+
+            $site = new Site();
+            $site->setNom("ENI-Rennes");
+            $em->persist($site);
+
+            $user->setSite($site);
+            //Mise à jour du profil
+            $em->flush();
+            return $this->redirectToRoute("sortie_liste");
+        }
+
+        return $this->render('participant/monProfil.html.twig', [
+            'registerForm' => $registerForm->createView(),
+            'user' => $user
+            ]);
+
+    }
 }
 
 
