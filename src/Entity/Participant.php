@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ParticipantRepository")
@@ -21,23 +22,32 @@ class Participant implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="1", max="255", minMessage="Nom trop court. {{ limit }} caractères minimum!", maxMessage="Nom trop long.{{ limit }} caractères maximum!")
+     * @Assert\NotBlank(message="Le nom est obligatoire!")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="1", max="255", minMessage="Prenom trop court. {{ limit }} caractères minimum!", maxMessage="Prenom trop long.{{ limit }} caractères maximum!")
+     * @Assert\NotBlank(message="Le prenom est obligatoire!")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\Length(min="10", max="20", minMessage="Numéro trop court. {{ limit }} chiffres minimum!", maxMessage="Numéro trop long.{{ limit }} chiffres maximum!")
+     * @Assert\NotBlank(message="Le numéro est obligatoire!")
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Email(message = "L'email '{{ value }}' n'est pas un email valide.")
+     * @Assert\NotBlank(message="L'email est obligatoire!")
      */
     private $mail;
+
 
     /**
      * @ORM\Column(type="boolean")
@@ -62,6 +72,8 @@ class Participant implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\Length(min="1", max="255", minMessage="Pseudo trop court. {{ limit }} caractères minimum!", maxMessage="Pseudo trop long.{{ limit }} caractères maximum!")
+     * @Assert\NotBlank(message="Le pseudo est obligatoire!")
      */
     private $pseudo;
 
@@ -72,6 +84,8 @@ class Participant implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="6", max="255", minMessage="Mot de passe trop court. {{ limit }} caractères minimum!", maxMessage="Mot de passe trop long.{{ limit }} caractères maximum!")
+     * @Assert\NotBlank(message="Le mot de passe est obligatoire!")
      */
     private $motDePasse;
 
