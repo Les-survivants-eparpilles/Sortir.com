@@ -241,7 +241,7 @@ class Participant implements UserInterface
 	 */
 	public function getRoles()
 	{
-		// TODO: Implement getRoles() method.
+		return ['ROLE_USER'];
 	}
 
 	/**
@@ -249,7 +249,7 @@ class Participant implements UserInterface
 	 */
 	public function getPassword()
 	{
-		// TODO: Implement getPassword() method.
+		return $this->motDePasse;
 	}
 
 	/**
@@ -257,7 +257,7 @@ class Participant implements UserInterface
 	 */
 	public function getSalt()
 	{
-		// TODO: Implement getSalt() method.
+		return null;
 	}
 
 	/**
@@ -265,7 +265,7 @@ class Participant implements UserInterface
 	 */
 	public function getUsername()
 	{
-		// TODO: Implement getUsername() method.
+		return $this->pseudo;
 	}
 
 	/**
@@ -273,6 +273,6 @@ class Participant implements UserInterface
 	 */
 	public function eraseCredentials()
 	{
-		// TODO: Implement eraseCredentials() method.
+
 	}
 }

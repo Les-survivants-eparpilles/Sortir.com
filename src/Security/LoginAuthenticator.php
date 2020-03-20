@@ -78,7 +78,7 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Pseudo could not be found.');
+            throw new CustomUserMessageAuthenticationException('Pseudo inconnu');
         }
 
         return $user;
@@ -104,7 +104,8 @@ class LoginAuthenticator extends AbstractFormLoginAuthenticator implements Passw
         }
 
         // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
+	    //TODO: Modifier la route une fois la page de Mounir OK
+	    return new RedirectResponse($this->urlGenerator->generate("sortie_liste"));
     }
 
     protected function getLoginUrl()
