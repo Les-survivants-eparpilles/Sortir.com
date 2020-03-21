@@ -32,13 +32,13 @@ header img{
     display: inline-block;
 }
 
-footer{
+/*footer{
     clear: both;
     position: relative;
     height: 200px;
     text-align: center;
     margin-top: 200px;
-}
+}*/
 
 main{
     margin-top: 2%;
