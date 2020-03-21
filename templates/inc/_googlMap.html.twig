@@ -23,8 +23,8 @@
 <script>
 
     function initMap() {
-        var myLatLng = {lat:48.0389113{#{{sorties.getLieu().getVille().getCodePostal()}}#},
-                        lng:-1.6922895 {#{{sorties.getLieu().getVille().getCodePostal()}}#}};
+        var myLatLng = {lat:48.0389113{#{{sorties.getLieu().getLatitude()}}#},
+                        lng:-1.6922895 {#{{sorties.getLieu().getLongitude()}}#}};
 
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 10,
