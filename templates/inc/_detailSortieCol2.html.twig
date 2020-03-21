@@ -2,27 +2,27 @@
     <tbody>
     <tr>
         <th scope="row">Ville organisatrice:</th>
-        <td>{{sorties.getNom()}}</td>
+        <td>{{sorties.getLieu().getVille().getNom()}}</td>
     </tr>
     <tr>
         <th scope="row">Lieu:</th>
-        <td>{{sorties.getDateHeureDebut() | date('d/m/Y H:i')}}</td>
+        <td>{{sorties.getLieu().getNom()}}</td>
     </tr>
     <tr>
         <th scope="row">Rue:</th>
-        <td>{{sorties.getDateLimiteInscription() | date('d/m/Y')}}</td>
+        <td>{{sorties.getLieu().getRue()}}</td>
     </tr>
     <tr>
         <th scope="row">Code postal:</th>
-        <td>{{sorties.getDuree()}} minutes</td>
+        <td>{{sorties.getLieu().getVille().getCodePostal()}}</td>
     </tr>
     <tr>
         <th scope="row">Latitude:</th>
-        <td>{{sorties.getInfosSortie()}} </td>
+        <td>{{sorties.getLieu().getLatitude()}} </td>
     </tr>
     <tr>
         <th scope="row">Longitude:</th>
-        <td>{{sorties.getInfosSortie()}} </td>
+        <td>{{sorties.getLieu().getLongitude()}} </td>
     </tr>
     </tbody>
 </table>

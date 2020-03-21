@@ -6,18 +6,13 @@
         <th scope="col">Nom</th>
     </tr>
     </thead>
+
     <tbody>
+    {% for participant in sorties.relation %}
     <tr>
-        <td >L'Expert</td>
-        <td>Jérémy</td>
+        <td> {{ participant.pseudo }} </td>
+        <td>{{ participant.nom }}</td>
     </tr>
-    <tr>
-        <td >The Snobinard</td>
-        <td>Leonardo</td>
-    </tr>
-    <tr>
-        <td >Scrum Master</td>
-        <td colspan="2">Maxence</td>
-    </tr>
+    {% endfor %}
     </tbody>
 </table>
