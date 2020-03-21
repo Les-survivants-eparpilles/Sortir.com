@@ -31,7 +31,7 @@ class SortieController extends AbstractController
 
     /**
      * Détail de la sortie
-     * @Route("/{id}", name="sortie_detail", requirements={"id"="\d+"},
+     * @Route("sortie/{id}", name="sortie_detail", requirements={"id"="\d+"},
      *     methods={"GET","POST"})
      */
     public function detail(Request $request, $id){

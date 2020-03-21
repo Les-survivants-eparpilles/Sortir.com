@@ -51,3 +51,9 @@ main h1{
 div.row a{
     margin-right: 1%;
 }
+/**
+Map de googlMap dans _googleMap inc
+ */
+#map {
+    height: 100%;
+}

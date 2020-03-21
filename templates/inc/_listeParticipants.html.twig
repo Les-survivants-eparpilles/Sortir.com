@@ -9,10 +9,19 @@
 
     <tbody>
     {% for participant in sorties.relation %}
+
+
+
     <tr>
-        <td> {{ participant.pseudo }} </td>
+        <td>
+            <a class="btn" type="submit" href="{{ path("participant_detail", {"id" : participant.id}) }}">
+            {{ participant.pseudo }}
+            </a>
+        </td>
         <td>{{ participant.nom }}</td>
+
     </tr>
+
     {% endfor %}
     </tbody>
 </table>
