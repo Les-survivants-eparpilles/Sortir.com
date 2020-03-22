@@ -40,7 +40,17 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
+        # rôles prédéfinis :
+        #  - IS_AUTHENTICATED_ANONYMOUSLY = tous les utilisateurs
+        #  - IS_AUTHENTICATED_REMEMBERED = tous les utilisateurs déjà authentifiés
+        #                                  via login ou "remember me"
+        #  - IS_AUTHENTICATED_FULLY = tous les utilisateurs déjà authentifiés
+        #       via login UNIQUEMENT
+
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        #- { path: ^/register, roles: ROLE_ADMIN }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/monProfil, roles: ROLE_USER }
+        - { path: ^/profil, roles: ROLE_USER }
+        - { path: ^/listeSortie, roles: ROLE_USER }
 
