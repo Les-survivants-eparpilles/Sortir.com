@@ -1,6 +1,5 @@
 jQuery(document).ready(function ($) {
 
-
   // Header fixed and Back to top button
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
@@ -71,7 +70,7 @@ jQuery(document).ready(function ($) {
 
   // Smoth scroll on page hash links
   $('a[href*="#"]:not([href="#"])').on('click', function () {
-    if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 
       var target = $(this.hash);
       if (target.length) {
@@ -129,36 +128,3 @@ jQuery(document).ready(function ($) {
   // custom code
 
 });
-//Mousemove on background-image hero
-document.addEventListener('DOMContentLoaded', function(){
-  let wrapper = document.getElementById('wrapper');
-  let topLayer = wrapper.querySelector('.top');
-  let handle = wrapper.querySelector('.handle');
-  let skew = 0;
-  let delta = 0;
-
-  if(wrapper.className.indexOf('skewed') !== -1){
-      skew = 1000;
-  }
-  
-  wrapper.addEventListener('mousemove' , function(e){
-      client=this.clientWidth;
-      delta = (e.clientX - window.innerWidth /2)*0.5;
- 
-      var position = client -e.clientX;
-      console.log(position);
-
-      handle.style.left =position + 'px';     
-
-  topLayer.style.width= position + 'px';
-
-  //topLayer.style.width= (e.clientX -(client-100))+ skew + 'px';
-
-  //topLayer.style.width -1;
-
-      
-
-
-  });
-});
-

@@ -69,6 +69,7 @@ class SortieRepository extends ServiceEntityRepository
 			->join('s.lieu', 'l')
 			->join('s.etat', 'e')
 			->join('l.ville', 'v')
+			->andWhere("s.dateHeureDebut > DATE_SUB(CURRENT_DATE(),1, 'month')" )
 			->orderBy("s.dateHeureDebut", "asc");
 
 		// On crée l'objet Query

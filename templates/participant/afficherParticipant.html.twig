@@ -6,15 +6,14 @@
 
 {% block main %}
 
-    <!--==========================
-   About Us Section
- ============================-->
+
+    {# ABOUT US SECTION #}
     <section id="about">
         <div class="container">
             <div class="row about-container">
 
                 <div class="col-lg-6 content order-lg-1 order-2">
-                    {% for participant in participant %}
+
                     <h2 class="title">{{ participant.getPseudo() }}</h2>
                     <p>
                         Curieux de nature, j'aime apprendre sans cesse et évoluer.
@@ -58,9 +57,9 @@
             </div>
                         </div>
                         </section><!-- #about -->
-            <!--==========================
+            {#<!--==========================
   Call To Action Section
-  ============================-->
+  ============================-->#}
             <section id="call-to-action">
                 <div class="container wow fadeIn">
                     <div class="row">
@@ -74,13 +73,13 @@
                     </div>
 
                 </div>
-            </section><!-- #call-to-action -->
+            </section>{#<!-- #call-to-action -->#}
 
-            <!--==========================
-              Portfolio Section
-            ============================-->
-                        {{ path("sortie_liste") }}
-{% endfor %}
+                        {#<!--==========================
+                          Portfolio Section
+                        ============================-->#}
+
+
 
 
 {% endblock %}

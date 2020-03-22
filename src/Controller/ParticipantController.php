@@ -48,7 +48,8 @@ class ParticipantController extends AbstractController
 
 	/**
 	 * Récupére un participant en BDD par son ID pour l'affichage du profil
-	 * @Route("/profil/{id}", name="participant_autreProfil")
+	 * @Route("/profil/{id}", name="participant_autreProfil",
+	 *  methods={"GET", "POST"})
 	 * @param Request $request
 	 * @param $id
 	 * @return \Symfony\Component\HttpFoundation\Response
@@ -61,7 +62,7 @@ class ParticipantController extends AbstractController
 		if ($participant == null){
 			throw $this->createNotFoundException("Profil inconnu");
 		}
-		return $this->render("participant/autreProfil.html.twig", ['participant' => $participant]);
+		return $this->render("participant/afficherParticipant.html.twig", ['participant' => $participant]);
 	}
 
     /**
