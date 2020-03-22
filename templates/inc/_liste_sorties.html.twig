@@ -38,11 +38,20 @@
 
             </td>
             <td>
-                {{ sortie.organisateur.nom }}
+                <a href="{{ path("participant_detail", {"id" : sortie.organisateur.id}) }}">
+                    {{ sortie.organisateur.nom }}
+                </a>
             </td>
             <td>
 
-                {{ sortie.etat.id == 1 ? "Afficher" : "Annuler"}}
+                <a href="{{ path("sortie_detail", {"id" : sortie.id}) }}">Afficher</a>
+                {#<a href="{{ path("modifier_sortie") }}">Modifier</a>
+                <a href="{{ path("annuler_sortie") }}">Annuler</a>#}
+
+                {#Formulaire invisible - Se desister -#}
+                {#<a href="{{ path("publier_sortie", {"id" : participant.id }) }}">Publier</a>
+                <a href="{{ path("inscrire_sortie", {"id" : participant.id }) }}">S'inscrire</a>
+                <a href="{{ path("desister_sortie", {"id" : participant.id }) }}">Se desister</a>#}
 
             </td>
 

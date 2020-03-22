@@ -1,0 +1,27 @@
+<h6 class="display-4 text-center">Liste des participants inscrits:</h6>
+<table class="table table-hover table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Pseudo</th>
+        <th scope="col">Nom</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for participant in sorties.relation %}
+
+
+
+    <tr>
+        <td>
+            <a class="btn" type="submit" href="{{ path("participant_detail", {"id" : participant.id}) }}">
+            {{ participant.pseudo }}
+            </a>
+        </td>
+        <td>{{ participant.nom }}</td>
+
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>

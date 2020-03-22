@@ -78,41 +78,7 @@ class SortieRepository extends ServiceEntityRepository
 		return new Paginator($query);
 	}
 
-	public function findAllInscrit()
-	{
-		//Ci-dessous la requette SQL afin d'afficher tout les inscrits d'une sortie
-		//SELECT * FROM `sortie_participant` WHERE 1
-		// on crée un objet QueryBuilder
-		$qb = $this->createQueryBuilder('s');
-		$qb->addSelect('par')
-			->join('s.organisateur', 'par')
-			->andWhere("s.id = par.id");
 
-			//On crée l'objet Query
-		$query = $qb->getQuery();
-
-		// On retourne le résultat
-		return new Paginator($query);
-	}
-
-
-	public function nbInscrits()
-	{
-		//Le nombre d'inscrit dans une sortie se trouve dans cette requette BDD
-
-		//SELECT COUNT(participant_id) FROM `sortie_participant` WHERE sortie_id=1
-
-		$qb = $this->createQueryBuilder('s');
-
-		$qb	->addSelect('p')
-			->join('s.organisateur', 'p')
-			->select('count(p.id)')
-			->groupBy('s.id');
-		$query = $qb->getQuery();
-
-		return $query->getScalarResult();
-
-	}
 
 
 }
