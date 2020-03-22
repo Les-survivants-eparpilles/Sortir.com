@@ -12,22 +12,19 @@
         {% block stylesheets %}
 
 {{ include('inc/_link.html.twig') }}
-            <link rel="icon" href="{{ asset('img/icon.svg') }}">
+
 
         {% endblock %}
     </head>
     <body>
     {% block body %}
     <header>
-        <div id="logo">
-            <img src="{{ asset('img/logo.png') }}">
-            <h1>Sortir.com</h1>
-        </div>
-
-        {{ include('inc/_navbar.html.twig') }}
+{#include du fichier twig contenant les liens#}
+        {{ include('inc/_navbarThemeRegna.html.twig') }}
     </header>
 
     <main id="main">
+        <section id="about">
         {% block main %}
         {% endblock %}
             <div id="msg">
@@ -40,6 +37,7 @@
             {% endfor %}
         </div>
     {% endblock %}
+        </section>
     </main>
 
         <footer  >

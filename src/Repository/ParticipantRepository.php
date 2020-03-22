@@ -21,21 +21,7 @@ class ParticipantRepository extends ServiceEntityRepository
 
 
 
-    // /**
-    //  * @return Participant[] Returns an array of Participant objects
-    //  */
 
-    public function findById($id)
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.id= :val')
-            ->setParameter('val', $id)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
 
 
     /*
