@@ -45,13 +45,18 @@
             <td>
 
                 <a href="{{ path("sortie_detail", {"id" : sortie.id}) }}">Afficher</a>
+
+                {##}
+                <a
+                        href="{{ path("inscrire_participant", {"id" :sortie.id }) }}">S'inscrire</a>
+                <a href="{{ path("desiste_participant", {"id" :sortie.id }) }}">Se desister</a>
                 {#<a href="{{ path("modifier_sortie") }}">Modifier</a>
                 <a href="{{ path("annuler_sortie") }}">Annuler</a>#}
 
                 {#Formulaire invisible - Se desister -#}
-                {#<a href="{{ path("publier_sortie", {"id" : participant.id }) }}">Publier</a>
-                <a href="{{ path("inscrire_sortie", {"id" : participant.id }) }}">S'inscrire</a>
-                <a href="{{ path("desister_sortie", {"id" : participant.id }) }}">Se desister</a>#}
+                {#<a href="{{ path("publier_sortie", {"id" : participant.id }) }}">Publier</a>#}
+
+
 
             </td>
 
