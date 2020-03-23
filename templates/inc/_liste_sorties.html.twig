@@ -32,10 +32,12 @@
                 {{ sortie.etat.libelle }}
             </td>
             <td>
+                {% for relation in sortie.relation %}
+                   {% if user.getUsername() is same as (relation.pseudo) %}
+                       <span class="badge badge-info">inscrit</span>
 
-                {{ sortie.organisateur.id == null ? "X" :
-                sortie.organisateur.id ~ " "}}
-
+                {% endif %}
+                {% endfor %}
             </td>
             <td>
                 <a href="{{ path("participant_autreProfil", {"id" : sortie.organisateur.id}) }}">

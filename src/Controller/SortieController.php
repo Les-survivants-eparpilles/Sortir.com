@@ -24,8 +24,10 @@ class SortieController extends AbstractController
 	    $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);
 
 	    $sorties = $sortieRepo->findAllPersonaliser();
+	    $user=$this->getUser();
         return $this->render('sorties.html.twig', [
         	'sorties' => $sorties,
+	        'user' => $user
         ]);
     }
 
