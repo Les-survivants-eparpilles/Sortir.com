@@ -22,10 +22,12 @@ class SortieController extends AbstractController
     {
     	//récupérer la liste des sorties dans la bases ainsi que toutes leurs informations
 	    $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);
-
-	    $sorties = $sortieRepo->findAllPersonaliser();
+		$id = $this->getUser()->getId();
+	    $sorties = $sortieRepo->findAllPersonaliser($id);
+	    $user=$this->getUser();
         return $this->render('sorties.html.twig', [
         	'sorties' => $sorties,
+	        'user' => $user
         ]);
     }
 

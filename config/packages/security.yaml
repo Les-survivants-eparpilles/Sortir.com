@@ -50,7 +50,7 @@ security:
     access_control:
         #- { path: ^/register, roles: ROLE_ADMIN }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/monProfil, roles: ROLE_USER }
-        - { path: ^/profil, roles: ROLE_USER }
-        - { path: ^/listeSortie, roles: ROLE_USER }
+        - { path: ^/monProfil, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/profil, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/listeSortie, roles: IS_AUTHENTICATED_FULLY }
 

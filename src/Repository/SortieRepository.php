@@ -55,7 +55,7 @@ class SortieRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-	public function findAllPersonaliser()
+	public function findAllPersonaliser($id)
 	{
 		// on crée un objet QueryBuilder
 		$qb = $this->createQueryBuilder('s');
@@ -70,6 +70,8 @@ class SortieRepository extends ServiceEntityRepository
 			->join('s.etat', 'e')
 			->join('l.ville', 'v')
 			->andWhere("s.dateHeureDebut > DATE_SUB(CURRENT_DATE(),1, 'month')" )
+			->andWhere("not (e.id = 1 and s.organisateur != :id)")
+			->setParameter("id", $id)
 			->orderBy("s.dateHeureDebut", "asc");
 
 		// On crée l'objet Query
