@@ -18,7 +18,7 @@ security:
             remember_me:
                 secret: '%kernel.secret%'
                 lifetime: 604800 # 1 week in seconds
-                path: /
+                path: /login
                 # by default, the feature is enabled by checking a
                 # checkbox in the login form (see below), uncomment the
                 # following line to always enable it.
@@ -48,9 +48,10 @@ security:
         #       via login UNIQUEMENT
 
     access_control:
-        #- { path: ^/register, roles: ROLE_ADMIN }
+        - { path: ^/register, roles: ROLE_ADMIN }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/monProfil, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/profil, roles: IS_AUTHENTICATED_FULLY }
-        - { path: ^/listeSortie, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+        #- { path: ^/monProfil, roles: IS_AUTHENTICATED_FULLY }
+        #- { path: ^/profil, roles: IS_AUTHENTICATED_FULLY }
+        #- { path: ^/listeSortie, roles: IS_AUTHENTICATED_FULLY }
 
