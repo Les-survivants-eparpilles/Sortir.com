@@ -55,7 +55,7 @@ class SortieRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-	public function findAllPersonaliser($idUser, $dropdownSite, $recherche, $dateDebutRecherche, $dateFinRecherche, $checkOrganisateur, $checkInscrit, $checkPasInscrit, $checkSortiesPassees)
+	public function findAllPersonaliser($idUser, $siteId, $recherche, $dateDebutRecherche, $dateFinRecherche, $checkOrganisateur, $checkInscrit, $checkPasInscrit, $checkSortiesPassees)
 	{
 		// on crée un objet QueryBuilder
 		$qb = $this->createQueryBuilder('s');
@@ -72,9 +72,9 @@ class SortieRepository extends ServiceEntityRepository
 			->orderBy("s.dateHeureDebut", "asc");
 
 		//Dropdown des sites
-//		if (!is_null(trim($dropdownSite))){
-//			$qb->andWhere('si.nom = :dropDownSite')->setParameter('dropDownSite', $dropdownSite);
-//		}
+		if (!is_null($siteId)){
+			$qb->andWhere('si.id = :siteId')->setParameter('siteId', $siteId);
+		}
 
 		//Champ de recherche textuel
 		if (!is_null(trim($recherche))){
@@ -110,7 +110,7 @@ class SortieRepository extends ServiceEntityRepository
 		}
 		//Checkbox la Sortie est passée
 		if ($checkSortiesPassees == 'true'){
-			$qb ->andWhere("s.dateHeureDebut > DATE_SUB(CURRENT_DATE(),1, 'month')" );
+			$qb ->andWhere("s.dateHeureDebut < DATE_SUB(CURRENT_DATE(),1, 'month')" );
 		} else {
 			$qb ->andWhere("s.dateHeureDebut > DATE_SUB(CURRENT_DATE(),1, 'month')" );
 
