@@ -10,6 +10,12 @@ html{
 #logo{
     display: inline-block;
 }
+
+#logo img{
+    display: inline-block;
+    margin-right: -25%;
+    width: 25%;
+}
 header h1{
     display: inline-block;
     font-family: 'Anton', sans-serif;
@@ -52,7 +58,7 @@ div.row a{
     margin-right: 1%;
 }
 /**
-Map de googlMap dans _googleMap inc
+Map de googleMap dans _googleMap inc
  */
 #map {
     height: 100%;

@@ -55,7 +55,7 @@ class SortieRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-	public function findAllPersonaliser($id)
+	public function findAllPersonaliser($idUser, $dropdownSite, $recherche, $dateDebutRecherche, $dateFinRecherche, $checkOrganisateur, $checkInscrit, $checkPasInscrit, $checkSortiesPassees)
 	{
 		// on crée un objet QueryBuilder
 		$qb = $this->createQueryBuilder('s');
@@ -69,10 +69,55 @@ class SortieRepository extends ServiceEntityRepository
 			->join('s.lieu', 'l')
 			->join('s.etat', 'e')
 			->join('l.ville', 'v')
-			->andWhere("s.dateHeureDebut > DATE_SUB(CURRENT_DATE(),1, 'month')" )
-			->andWhere("not (e.id = 1 and s.organisateur != :id)")
-			->setParameter("id", $id)
 			->orderBy("s.dateHeureDebut", "asc");
+
+		//Dropdown des sites
+//		if (!is_null(trim($dropdownSite))){
+//			$qb->andWhere('si.nom = :dropDownSite')->setParameter('dropDownSite', $dropdownSite);
+//		}
+
+		//Champ de recherche textuel
+		if (!is_null(trim($recherche))){
+			$qb->andWhere('s.nom LIKE :recherche')->setParameter('recherche', '%'.$recherche.'%');
+		}
+
+		//Champs de recherche par dates:
+		//Date de début pour la recherche
+//		if (!is_null(trim($dropdownSite))){
+//			$qb->andWhere('si.nom = :dropDownSite')->setParameter('dropDownSite', $dropdownSite);
+//		}
+		//Date de fin pour la recherche
+//		if (!is_null(trim($dropdownSite))){
+//			$qb->andWhere('si.nom = :dropDownSite')->setParameter('dropDownSite', $dropdownSite);
+//		}
+
+		//Checkboxes:
+		//Checkbox User est organisateur de la sortie
+		if ($checkOrganisateur == 'true'){
+			$qb->andWhere('par.id = :id')->setParameter('id', $idUser);
+		} else {
+			$qb->andWhere("not (e.id = 1 and par.id = :id)") ->setParameter("id", $idUser);
+		}
+		//Checkbox User est inscrit à la sortie
+		if ($checkInscrit == 'true'){
+			$qb ->join('s.relation', 'r')
+				->andWhere('r.id = :id')->setParameter('id', $idUser);
+		}
+		//Checkbox User n'est pas inscrit à la sortie
+		if ($checkPasInscrit == 'true'){
+			$qb ->join('s.relation', 'r')
+				->andWhere('r.id != :id')->setParameter('id', $idUser);
+		}
+		//Checkbox la Sortie est passée
+		if ($checkSortiesPassees == 'true'){
+			$qb ->andWhere("s.dateHeureDebut > DATE_SUB(CURRENT_DATE(),1, 'month')" );
+		} else {
+			$qb ->andWhere("s.dateHeureDebut > DATE_SUB(CURRENT_DATE(),1, 'month')" );
+
+		}
+
+
+
 
 		// On crée l'objet Query
 		$query = $qb->getQuery();

@@ -1,11 +1,11 @@
 {% extends("base.html.twig") %}
 
 {% block title %}
-    Sortie.com
+    Sortir.com
 {% endblock %}
 
 {% block main %}
-
+    {{ include('inc/_filtreSorties.html.twig') }}
     {{ include('inc/_liste_sorties.html.twig') }}
 {% endblock %}
 
