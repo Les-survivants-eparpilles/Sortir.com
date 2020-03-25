@@ -68,9 +68,11 @@
                     {% endif %}
                 {% endif %}
 
-                {#  Bouton Se desister si déjà cloturée mais déjà inscrit #}
-                {% if sortie.etat.id ==3 and pasInscrit==false %}
-                    <a href="{{ path("gestionEtat_desister", {"id" :sortie.id }) }}">Se désister</a>=
+                {#  Bouton Se desister si sortie cloturée ou encours mais déjà inscrit #}
+                {% if sortie.etat.id==2 or sortie.etat.id==3 %}
+                    {% if pasInscrit==false %}
+                        <a href="{{ path("gestionEtat_desister", {"id" :sortie.id }) }}">Se désister</a>
+                    {% endif %}
                 {% endif %}
 
                 {#  Bouton Modifier   #}
