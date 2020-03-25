@@ -53,7 +53,13 @@ class SortieController extends AbstractController
 
 	    }else{
 	    	$siteId = null;
+	    	$recherche = null;
 	    	$dateDebutRecherche = null;
+	    	$dateFinRecherche = null;
+	    	$checkOrganisateur = null;
+	    	$checkInscrit = null;
+	    	$checkPasInscrit = null;
+	    	$checkSortiesPassees = null;
 	    }
 
 
