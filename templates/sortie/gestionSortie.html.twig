@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block main %}
+
     {% if sortie is defined %}
         <h1>Modification d'une sortie</h1>
     {% else %}
@@ -25,7 +26,6 @@
     {{ form_row(creerSortieForm.infosSortie) }}
     <p>Site organisateur : {{ participant.site.nom }}</p>
     {{ form_row(creerSortieForm.lieu) }}
-
     <div class="row">
         <div class="col-sm">
         </div>
@@ -48,4 +48,3 @@
     </div>
     {{ form_end(creerSortieForm) }}
 {% endblock %}
-

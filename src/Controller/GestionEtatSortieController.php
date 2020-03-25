@@ -36,15 +36,12 @@ class GestionEtatSortieController extends AbstractController
         $creerSortieForm->handleRequest($request);
 
         if ($creerSortieForm->isSubmitted() && $creerSortieForm->isValid()){
-
             //On récupére l'etat en fonction du bouton cliqué
             $etatRepo = $this->getDoctrine()->getRepository(Etat::class);
             if ($creerSortieForm->get('enregistrer')->isClicked()){
                 $etat = $etatRepo->find(1);
-                $this->addFlash("success", "Sortie enregistrée");
             }else if($creerSortieForm->get('publier')->isClicked()){
                 $etat = $etatRepo->find(2);
-                $this->addFlash("success", "Sortie publiée");
             }
 
             //on ajoute les champs manquants du formulaire dans l'objet Sortie
@@ -54,8 +51,18 @@ class GestionEtatSortieController extends AbstractController
             $sortie->setOuverteOuNon(0);
 
             $em->persist($sortie);
-            $em->flush();
-            return $this->redirectToRoute("sortie_liste");
+            if($sortie->getDateLimiteInscription() < $sortie->getDateHeureDebut()){
+                if($sortie->getEtat()->getId() == 1){
+                    $this->addFlash("success", "Sortie enregistrée");
+                }elseif($sortie->getEtat()->getId() == 2){
+                    $this->addFlash("success", "Sortie publiée");
+                }
+                $em->flush();
+                return $this->redirectToRoute("sortie_liste");
+            }else{
+                $this->addFlash("danger", "La date de limite d'incription ne peut pas être supérieure à la date de l'évenement.");
+            }
+
         }
         return $this->render('sortie/gestionSortie.html.twig', [
             'creerSortieForm' => $creerSortieForm->createView(),
