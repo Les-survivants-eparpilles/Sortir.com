@@ -42,7 +42,8 @@ class ParticipantController extends AbstractController
 
 			$em->persist($participant);
 			$em->flush();
-			return $this->redirectToRoute("app_login");
+            $this->addFlash("success", "Nouvel utilisateur enregistré");
+			return $this->redirectToRoute("sortie_liste");
 		}
 
 		return $this->render('participant/register.html.twig', ['registerForm' => $registerForm->createView()]);
