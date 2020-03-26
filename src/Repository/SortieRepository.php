@@ -83,13 +83,13 @@ class SortieRepository extends ServiceEntityRepository
 
 		//Champs de recherche par dates:
 		//Date de début pour la recherche
-//		if (!is_null(trim($dropdownSite))){
-//			$qb->andWhere('si.nom = :dropDownSite')->setParameter('dropDownSite', $dropdownSite);
-//		}
+		if (!is_null($dateDebutRecherche)){
+			$qb->andWhere('s.dateHeureDebut > :dateDebutRecherche')->setParameter('dateDebutRecherche', $dateDebutRecherche);
+		}
 		//Date de fin pour la recherche
-//		if (!is_null(trim($dropdownSite))){
-//			$qb->andWhere('si.nom = :dropDownSite')->setParameter('dropDownSite', $dropdownSite);
-//		}
+		if (!is_null($dateFinRecherche)){
+			$qb->andWhere('s.dateHeureDebut < :dateFinRecherche')->setParameter('dateFinRecherche', $dateFinRecherche);
+		}
 
 		//Checkboxes:
 		//Checkbox User est organisateur de la sortie
