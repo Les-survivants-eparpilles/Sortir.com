@@ -96,6 +96,8 @@ class SortieController extends AbstractController
      *     methods={"GET","POST"})
      */
     public function detail(Request $request, $id){
+        $user=$this->getUser();
+
 	    //récupérer la liste des sorties dans la bases ainsi que toutes leurs informations
 	    $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);
 
@@ -104,7 +106,8 @@ class SortieController extends AbstractController
 	    	throw $this->createNotFoundException("Sortie inconnu");
 	    }
 	    return $this->render('sortie/afficherSortie.html.twig', [
-		    'sorties' => $sorties
+		    'sorties' => $sorties,
+            'user' =>$user
 	    ]);
     }
 }
