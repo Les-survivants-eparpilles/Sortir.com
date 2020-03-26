@@ -29,8 +29,6 @@
 
 <main id="main">
     <section id="about">
-        {% block main %}
-        {% endblock %}
         <div id="msg">
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
@@ -39,8 +37,9 @@
                     </div>
                 {% endfor %}
             {% endfor %}
-
         </div>
+        {% block main %}
+        {% endblock %}
         {% endblock %}
     </section>
 </main>
