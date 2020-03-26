@@ -15,10 +15,10 @@ Header
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     {#<li><a href="{{ path('sortie_liste') }}#about">Villes</a></li>
                     <li><a href="{{ path('sortie_liste')}}#about">Sites</a></li>#}
-                    <li><a href="{{ path('sortie_liste') }}#about">Accueil</a></li>
-                    <li><a href="{{ path('participant_monProfil') }}#about">Mon Profil</a></li>
+                    <li><a href="{{ path('sortie_liste') }}">Accueil</a></li>
+                    <li><a href="{{ path('participant_monProfil') }}">Mon Profil</a></li>
                     {% if is_granted("ROLE_ADMIN") %}
-                        <li><a href="{{ path('participant_registrer') }}#about">Ajouter un utilisateur</a></li>
+                        <li><a href="{{ path('participant_registrer') }}">Ajouter un utilisateur</a></li>
                     {% endif %}
                     <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
                 {% endif %}
@@ -27,17 +27,4 @@ Header
     </div>
 </header><!-- #header -->
 
-<!--==========================
-  Hero Section
-============================-->
-<section id="hero">
-    <video autoplay muted loop id="myVideo">
-        <source src="{{ asset('img/Night.mp4') }}" type="video/mp4">
-    </video>
-    <div class="hero-container">
-        <h1>Sortir.com</h1>
 
-        <a href="#about" class="btn-get-started">Get Started</a>
-
-    </div>
-</section><!-- #hero -->

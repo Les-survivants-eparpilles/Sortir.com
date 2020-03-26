@@ -22,13 +22,7 @@
 </head>
 <body>
 {% block body %}
-<header>
-    {#include du fichier twig contenant les liens#}
-    {{ include('inc/_navbarThemeRegna.html.twig') }}
-</header>
-
-<main id="main">
-    <section id="about">
+    <header>
         <div id="msg">
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
@@ -38,12 +32,20 @@
                 {% endfor %}
             {% endfor %}
         </div>
-        {% block main %}
-        {% endblock %}
-        {% endblock %}
-    </section>
-</main>
+        {% block header %}
+        {#include du fichier twig contenant les liens#}
+        {{ include('inc/_navbarThemeRegna.html.twig') }}
 
+        {% endblock %}
+    </header>
+
+    <main id="main">
+        <section id="about">
+            {% block main %}
+            {% endblock %}
+        </section>
+    </main>
+{% endblock %}
 <footer>
     <div id="copyright">&copy;LesSurvivantsEparpillés{{ "now" |date("Y") }}</div>
 </footer>

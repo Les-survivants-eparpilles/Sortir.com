@@ -6,12 +6,10 @@ Map de googleMap dans _googleMap inc
     height: 100%;
 }
 
-#listeSortie{
-
-}
 .contenu-scroll{
     overflow: scroll;
     height: 300px;
+    background: #c7c7c7;
 }
 
 /**
@@ -705,3 +703,6 @@ a.button.yahoo:active {
     background: linear-gradient(#5f396a, #be95b7);
     border: solid 1px #4b2a55;
     box-shadow: inset 0 10px 15px 0 #4d2955; }
+label {
+    color: white;
+}

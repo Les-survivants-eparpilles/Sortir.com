@@ -3,9 +3,21 @@
 {% block title %}
     Sortir.com
 {% endblock %}
-
+{% block header %}
+    {{ include('inc/_navbarThemeRegna.html.twig') }}
+    <!--==========================
+   Hero Section
+   ============================-->
+    <section id="hero">
+        <video autoplay muted loop id="myVideo">
+            <source src="{{ asset('img/Night.mp4') }}" type="video/mp4">
+        </video>
+        <div class="hero-container">
+            {{ include('inc/_filtreSorties.html.twig') }}
+            {{ include('inc/_liste_sorties.html.twig') }}
+        </div>
+    </section><!-- #hero -->
+{% endblock %}
 {% block main %}
-    {{ include('inc/_filtreSorties.html.twig') }}
-    {{ include('inc/_liste_sorties.html.twig') }}
 {% endblock %}
 

@@ -1,11 +1,25 @@
 {% extends 'base.html.twig'  %}
-{% form_theme registerForm "bootstrap_4_layout.html.twig" %}
+
+{% block header %}
+    {{ include('inc/_navbarThemeRegna.html.twig') }}
+    <!--==========================
+   Hero Section
+   ============================-->
+    <section id="hero">
+        <video autoplay muted loop id="myVideo">
+            <source src="{{ asset('img/Night.mp4') }}" type="video/mp4">
+        </video>
+        <div class="hero-container">
+            <h1>Inscription</h1>
+            {{ form_start(registerForm) }}
+            {{ form_widget(registerForm) }}
+            <button type="submit" class="btn-get-started">Enregistrer</button>
+            {{ form_end(registerForm) }}
+        </div>
+    </section><!-- #hero -->
+{% endblock %}
 {% block main %}
-    <h1>Inscription</h1>
-    {{ form_start(registerForm) }}
-    {{ form_widget(registerForm) }}
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
-    {{ form_end(registerForm) }}
+
 {% endblock %}
 
 {% block title %}
