@@ -40,15 +40,16 @@ class GestionEtatSortieController extends AbstractController
             $etatRepo = $this->getDoctrine()->getRepository(Etat::class);
             if ($creerSortieForm->get('enregistrer')->isClicked()){
                 $etat = $etatRepo->find(1);
+                $sortie->setOuverteOuNon(0);
             }else if($creerSortieForm->get('publier')->isClicked()){
                 $etat = $etatRepo->find(2);
+                $sortie->setOuverteOuNon(1);
             }
 
             //on ajoute les champs manquants du formulaire dans l'objet Sortie
             $sortie->setEtat($etat);
             $sortie->setOrganisateur($participant);
             $sortie->setSite($siteOrganisateur);
-            $sortie->setOuverteOuNon(0);
 
             $em->persist($sortie);
             if($sortie->getDateLimiteInscription() < $sortie->getDateHeureDebut()){
@@ -94,9 +95,11 @@ class GestionEtatSortieController extends AbstractController
             $etatRepo = $this->getDoctrine()->getRepository(Etat::class);
             if ($modificationSortieForm->get('enregistrer')->isClicked()){
                 $etat = $etatRepo->find(1);
-                $this->addFlash("success", "Modification de la sortie enregistrées");
+                $sortie->setOuverteOuNon(0);
+                $this->addFlash("success", "Modification de la sortie enregistrée");
             }else if($modificationSortieForm->get('publier')->isClicked()){
                 $etat = $etatRepo->find(2);
+                $sortie->setOuverteOuNon(1);
                 $this->addFlash("success", "Sortie publiée");
             }
             $sortie->setEtat($etat);
@@ -156,9 +159,11 @@ class GestionEtatSortieController extends AbstractController
             && ($utilisateur->getId() == $sortie->getOrganisateur()->getId())) {
             $etatRepo=$this->getDoctrine()->getRepository(Etat::class);
             $etat=$etatRepo->find(2);
+            $sortie->setOuverteOuNon(1);
             $sortie->setEtat($etat);
             $em->persist($sortie);
             $em->flush();
+            $this->addFlash("success", "Sortie publiée");
         }
         //Redirection vers la fonction controlleur d'affichage globale
         return $this->redirectToRoute("sortie_liste");
