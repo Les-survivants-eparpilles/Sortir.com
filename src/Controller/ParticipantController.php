@@ -26,7 +26,9 @@ class ParticipantController extends AbstractController
 		$participant = new Participant();
 		$registerForm = $this->createForm(RegisterType::class, $participant);
 		$registerForm->handleRequest($request);
+
 		if ($registerForm->isSubmitted() && $registerForm->isValid()){
+
 			$password = $encoder->encodePassword($participant, $participant->getPassword());
 			$participant->setMotDePasse($password);
 			$participant->setAdministrateur(0);
@@ -81,7 +83,6 @@ class ParticipantController extends AbstractController
             $password = $encoder->encodePassword($user, $user->getPassword());
             $user->setMotDePasse($password);
             $user->setMotDePasse($password);
-            $user->setAdministrateur(0);
             $user->setActif(1);
 
             $site = new Site();
