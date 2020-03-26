@@ -25,6 +25,7 @@ class SortieController extends AbstractController
     	//Création du mini-formulaire pour le filtre du site
 	    $formFiltreRecherche = $this->createForm(FiltreRechercheType::class);
 	    $formFiltreRecherche->handleRequest($request);
+
 	    if ($formFiltreRecherche-> isSubmitted() && $formFiltreRecherche -> isValid()){
 
 			//Récupération du résultat du filtre des sites
@@ -80,6 +81,10 @@ class SortieController extends AbstractController
 	    //Récupération de la liste des sorties dans la base, des informations connexes dont nous avons besoin et application des filtres s'ils ne sont pas nuls
 	    $sortieRepo = $this->getDoctrine()->getRepository(Sortie::class);
 	    $sorties = $sortieRepo->findAllPersonaliser($idUser, $siteId, $recherche, $dateDebutRecherche, $dateFinRecherche, $checkOrganisateur, $checkInscrit, $checkPasInscrit, $checkSortiesPassees);
+
+	    if(count($sorties) ==null){
+		    $this->addFlash("danger","Aucune sortie pour cette recherche");
+	    }
 
 
 	    return $this->render('sorties.html.twig', [
