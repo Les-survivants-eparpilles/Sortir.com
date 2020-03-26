@@ -18,12 +18,12 @@ class RegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', TextType::class, ['label' => 'Nom', 'attr' => ['placeholder' => "Votre nom"]] )
-            ->add('prenom', TextType::class, ['label' => 'Prenom', 'attr' => ['placeholder' => "Votre prenom"]])
-            ->add('telephone', TextType::class, ['label' => 'Telephone', 'attr' => ['placeholder' => "Votre telephone"]])
-            ->add('mail', EmailType::class, ['label' => 'Email', 'attr' => ['placeholder' => "Votre Email"]])
-            ->add('pseudo', TextType::class, ['label' => 'Pseudo', 'attr' => ['placeholder' => "Votre pseudo"]])
-            ->add('photo', TextType::class, ['label' => 'Photo', 'attr' => ['placeholder' => "Votre photo"]])
+            ->add('nom', TextType::class, ['label' => 'Nom', 'attr' => ['placeholder' => "Le nom du nouvel utilisateur"]] )
+            ->add('prenom', TextType::class, ['label' => 'Prenom', 'attr' => ['placeholder' => "Le prénom du nouvel utilisateur"]])
+            ->add('telephone', TextType::class, ['label' => 'Telephone', 'attr' => ['placeholder' => "Le numéro du nouvel utilisateur"]])
+            ->add('mail', EmailType::class, ['label' => 'Email', 'attr' => ['placeholder' => "L'adresse email du nouvel utilisateur"]])
+            ->add('pseudo', TextType::class, ['label' => 'Pseudo', 'attr' => ['placeholder' => "Le pseudo du nouvel utilisateur"]])
+            ->add('photo', TextType::class, ['label' => 'Photo', 'attr' => ['placeholder' => "La photo du nouvel utilisateur"]])
             ->add('motDePasse', RepeatedType::class, [ 'type' => PasswordType::class,
 								                                    'invalid_message' => "Les mots de passes ne sont pas identique!",
 								                                    'first_options' => ['label' => 'Mot de passe'],
