@@ -1,6 +1,6 @@
-<div class="container">
-
-    <table class="table table-striped">
+<section >
+<div  class="container h-75">
+    <table class="table table-striped ">
         <thead>
         <tr>
             <th scope="col">Nom de la sortie</th>
@@ -49,7 +49,8 @@
 
                 {#  Bouton Afficher #}
                 {% if sortie.etat.id != 1 %}
-                <a href="{{ path("sortie_detail", {"id" : sortie.id}) }}">Afficher</a>
+
+                <a  class="button facebook text-decoration-none" href="{{ path("sortie_detail", {"id" : sortie.id}) }}">Afficher</a>
                 {% endif %}
 
                 {#  Bouton s'inscrire et se désister   #}
@@ -64,33 +65,33 @@
 
                     {#Si pas inscrit et sortie ouverte, alors bouton s'inscrire'#}
                     {% if pasInscrit==true %}
-                        <a href="{{ path("gestionEtat_inscrire", {"id" :sortie.id }) }}">S'inscrire</a>
+                        <a class="button xbox text-decoration-none" href="{{ path("gestionEtat_inscrire", {"id" :sortie.id }) }}">S'inscrire</a>
                     {% endif %}
                 {% endif %}
 
                 {#  Bouton Se desister si sortie cloturée ou encours mais déjà inscrit #}
                 {% if sortie.etat.id==2 or sortie.etat.id==3 %}
                     {% if pasInscrit==false %}
-                        <a href="{{ path("gestionEtat_desister", {"id" :sortie.id }) }}">Se désister</a>
+                        <a class="button dribbble text-decoration-none" href="{{ path("gestionEtat_desister", {"id" :sortie.id }) }}">Se désister</a>
                     {% endif %}
                 {% endif %}
 
                 {#  Bouton Modifier   #}
                 {% if user.id == sortie.organisateur.id and sortie.etat.id==1  %}
-                <a href="{{ path("gestionEtat_modifier", {"id" :sortie.id }) }}">Modifier</a>
+                <a class="button dribbble text-decoration-none" href="{{ path("gestionEtat_modifier", {"id" :sortie.id }) }}">Modifier</a>
 
                 {#Bouton Publier#}
-                <a href="{{ path("gestionEtat_publier", {"id" :sortie.id }) }}">Publier</a>
+                <a class="button dribbble text-decoration-none" href="{{ path("gestionEtat_publier", {"id" :sortie.id }) }}">Publier</a>
                 {% endif %}
 
                 {#Bouton Annuler#}
                 {% if user.id == sortie.organisateur.id and sortie.etat.id in [2, 3, 4] %}
-                <a href="{{ path("gestionEtat_annuler", {"id" :sortie.id }) }}">Annuler</a>
+                <a class="button rss text-decoration-none" href="{{ path("gestionEtat_annuler", {"id" :sortie.id }) }}">Annuler</a>
                 {% endif %}
             </td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
-
 </div>
+</section>
