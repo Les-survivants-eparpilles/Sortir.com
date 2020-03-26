@@ -96,7 +96,7 @@ class SortieRepository extends ServiceEntityRepository
 		if ($checkOrganisateur == 'true'){
 			$qb->andWhere('par.id = :id')->setParameter('id', $idUser);
 		} else {
-			$qb->andWhere("not (e.id = 1 and par.id = :id)") ->setParameter("id", $idUser);
+			$qb->andWhere("not (e.id = 1 and par.id != :id)") ->setParameter("id", $idUser);
 		}
 		//Checkbox User est inscrit à la sortie
 		if ($checkInscrit == 'true'){
