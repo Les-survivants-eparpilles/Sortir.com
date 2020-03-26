@@ -16,7 +16,9 @@
     </section><!-- #hero -->
 {% endblock %}
 {% block main %}
-    {{ include('inc/_filtreSorties.html.twig') }}
-    {{ include('inc/_liste_sorties.html.twig') }}
+    <div class="container" id="listeSortie">
+        {{ include('inc/_filtreSorties.html.twig') }}
+        {{ include('inc/_liste_sorties.html.twig') }}
+    </div>
 {% endblock %}
 

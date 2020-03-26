@@ -734,3 +734,9 @@ video {
     background: #3c3c3c;
     color: #c7c7c7;
 }
+
+#listeSortie{
+    background: rgba(137, 137, 137, 0.4);
+    border-radius: 20px 20px 20px 20px;
+    padding-top: 20px;
+}
