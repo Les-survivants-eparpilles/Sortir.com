@@ -17,6 +17,7 @@ Header
                     <li><a href="{{ path('sortie_liste')}}#about">Sites</a></li>#}
                     <li><a href="{{ path('sortie_liste') }}">Accueil</a></li>
                     <li><a href="{{ path('participant_monProfil') }}">Mon Profil</a></li>
+                    <li><a href="{{ path('gestionEtat_creer') }}">Créer une sortie</a></li>
                     {% if is_granted("ROLE_ADMIN") %}
                         <li><a href="{{ path('participant_registrer') }}">Ajouter un utilisateur</a></li>
                     {% endif %}
