@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Participant;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method Participant|null find($id, $lockMode = null, $lockVersion = null)
@@ -35,4 +36,21 @@ class ParticipantRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByPseudoOrEmail($pseudo, $email){
+        {
+            // on crée un objet QueryBuilder
+            $qb = $this->createQueryBuilder('p');
+            $qb->andWhere('p.pseudo = :pseudo OR p.mail = :email')
+                ->setParameter('pseudo', $pseudo)
+                ->setParameter('email', $email);
+
+
+            // On crée l'objet Query
+            $query = $qb->getQuery();
+
+            // On retourne le résultat
+            return new Paginator($query);
+        }
+    }
 }

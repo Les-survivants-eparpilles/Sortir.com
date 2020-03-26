@@ -29,7 +29,15 @@ class ParticipantController extends AbstractController
 
 		if ($registerForm->isSubmitted() && $registerForm->isValid()){
 
-			$password = $encoder->encodePassword($participant, $participant->getPassword());
+		    //Vérification de l'unicité du pseudo et de l'email
+            $participantRepo = $this->getDoctrine()->getRepository(Participant::class);
+            $participantDejaExiste = $participantRepo->findByPseudoOrEmail($participant->getPseudo(), $participant->getMail());
+            if(count($participantDejaExiste)!=null){
+                $this->addFlash("danger", "Le pseudo et/ou l'email existe déjà");
+                return $this->render('participant/register.html.twig', ['registerForm' => $registerForm->createView()]);
+            }
+
+            $password = $encoder->encodePassword($participant, $participant->getPassword());
 			$participant->setMotDePasse($password);
 			$participant->setAdministrateur(0);
 			$participant->setActif(1);
