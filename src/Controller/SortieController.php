@@ -16,7 +16,7 @@ class SortieController extends AbstractController
 {
     /**
      * Liste des sorties
-     * @Route("/listeSortie", name="sortie_liste")
+     * @Route("/", name="sortie_liste")
      * @param SortieRepository $sortieRepo
      * @return \Symfony\Component\HttpFoundation\Response
      */
