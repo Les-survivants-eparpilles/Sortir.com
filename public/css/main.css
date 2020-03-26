@@ -706,3 +706,7 @@ a.button.yahoo:active {
 label {
     color: white;
 }
+
+header{
+    background: rgba(137, 137, 137, 0.4);
+}
