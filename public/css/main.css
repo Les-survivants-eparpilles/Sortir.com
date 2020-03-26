@@ -725,3 +725,9 @@ video {
     transition: 1s opacity;
 }
 
+#copyright{
+    width: 100%;
+    text-align: center;
+    background: #3c3c3c;
+    color: #c7c7c7;
+}
