@@ -1,6 +1,6 @@
-<section >
-<div  class="container h-75">
-    <table class="table table-striped ">
+<section class="container" >
+    <div class="contenu-scroll">
+    <table class="table table-striped   "  >
         <thead>
         <tr>
             <th scope="col">Nom de la sortie</th>
@@ -13,7 +13,8 @@
             <th scope="col">Actions</th>
         </tr>
         </thead>
-        <tbody>
+
+        <tbody >
         {% for sortie in sorties %}
 
         <tr>
@@ -91,7 +92,14 @@
             </td>
         </tr>
         {% endfor %}
+
         </tbody>
+
+
     </table>
 </div>
+    <div class=" clearfix">
+        <a  href="{{ path("gestionEtat_creer") }}" class="button devart float-left text-decoration-none mt-3" target="_blank">Créer une sortie</a>
+    </div>
+
 </section>

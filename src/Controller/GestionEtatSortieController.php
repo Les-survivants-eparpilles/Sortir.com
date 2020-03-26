@@ -283,7 +283,7 @@ class GestionEtatSortieController extends AbstractController
             $em->flush();
         }
         // redirection
-        return $this->redirectToRoute("sortie_detail",[
+        return $this->redirectToRoute("sortie_liste",[
             'id' =>$sortie->getId()
         ]);
     }
