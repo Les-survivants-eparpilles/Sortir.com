@@ -740,3 +740,10 @@ video {
     border-radius: 20px 20px 20px 20px;
     padding-top: 20px;
 }
+
+.form-check-label{
+    margin-left: 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
