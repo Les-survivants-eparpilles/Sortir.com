@@ -611,12 +611,12 @@ background: rgba(25, 25, 25, 0.75);*/
   min-height: 300px;
   background: url(../img/PhotCvNBmodif800px.jpeg.png) center top no-repeat;
   /*margin-bottom: 10px;*/
-  border-radius: 0% 10% 10% 0%;
+  border-radius: 25px 0px 0px 25px;
 }
 
 #about .about-container .content {
   background: #fff;
-  border-radius: 5% 0% 0% 5%;
+  border-radius: 0px 25px 25px 0px;
 }
 
 #about .about-container .title {
