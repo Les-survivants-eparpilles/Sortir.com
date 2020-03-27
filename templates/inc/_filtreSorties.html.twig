@@ -87,21 +87,28 @@
 
     {#Nouvelle version#}
     {{ form_start(formFiltreRecherche, { "attr" : { "class" : "form-horizontal"}}) }}
-    <div class="container" >
+    <div class="container">
         <h3 style="color: white;">Filtrer les sorties</h3>
 
         {{ form_widget(formFiltreRecherche.siteId) }}
-        <label id="recherche">Le nom de la sortie contient: </label>
+        <label for="filtre_recherche[recherche]">Le nom de la sortie contient: </label>
         {{ form_widget(formFiltreRecherche.recherche) }}
-        {{ form_widget(formFiltreRecherche.dateDebutRecherche) }}
-        {{ form_widget(formFiltreRecherche.dateFinRecherche) }}
+        <div class="container" id="rechercheTemporelle">
+            <label>Entre le </label>
+            {{ form_widget(formFiltreRecherche.dateDebutRecherche) }}
+            <label>Et le </label>
+            {{ form_widget(formFiltreRecherche.dateFinRecherche) }}
+        </div>
+
+        <div class="container" id="checkboxesFiltre">
         {{ form_widget(formFiltreRecherche.checkOrganisateur) }}
         {{ form_widget(formFiltreRecherche.checkUserInscrit) }}
         {{ form_widget(formFiltreRecherche.checkUserPasInscrit) }}
         {{ form_widget(formFiltreRecherche.checkSortiesPassees) }}
+        </div>
 
 
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Rechercher</button>
+        <a class="button devart float-left text-decoration-none mt-3" type="submit" onclick="this.closest('form').submit();return false;">Rechercher</a>
         {{ form_end(formFiltreRecherche) }}
     </div>
 </div>

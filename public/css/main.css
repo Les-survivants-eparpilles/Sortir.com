@@ -741,9 +741,28 @@ video {
     padding-top: 20px;
 }
 
-.form-check-label{
-    margin-left: 15px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+#checkboxesFiltre label{
+    margin-left: 2%;
 }
 
+#checkboxesFiltre div {
+    margin: 1%;
+}
+
+#checkboxesFiltre{
+    margin-left: -3%;
+}
+
+.container form{
+    margin-bottom: 2%;
+}
+.container form div label{
+    margin-top: 1%;
+}
+
+#checkboxesFiltre label{
+    margin-top: 0%;
+}
+.container form div div select{
+    margin-left: 1%;
+}
