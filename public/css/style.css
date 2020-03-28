@@ -1182,3 +1182,7 @@ background: rgba(25, 25, 25, 0.75);*/
 legend{
   color: white;
 }
+
+.form-check-label{
+  margin-left: 15px;
+}
