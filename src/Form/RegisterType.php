@@ -6,6 +6,7 @@ use App\Entity\Participant;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -29,6 +30,10 @@ class RegisterType extends AbstractType
 								                                    'first_options' => ['label' => 'Mot de passe'],
 								                                    'second_options' => ['label'=>'Confirmation du mot de passe']
 							                                         ])
+            ->add('administrateur',CheckboxType::class, [
+                'label' => "Administrateur ",
+                'required' => false
+            ])
 
         ;
     }

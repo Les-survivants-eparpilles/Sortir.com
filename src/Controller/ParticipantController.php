@@ -39,7 +39,6 @@ class ParticipantController extends AbstractController
 
             $password = $encoder->encodePassword($participant, $participant->getPassword());
 			$participant->setMotDePasse($password);
-			$participant->setAdministrateur(0);
 			$participant->setActif(1);
 
 			$site = new Site();
