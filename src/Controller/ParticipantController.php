@@ -29,6 +29,12 @@ class ParticipantController extends AbstractController
 
 		if ($registerForm->isSubmitted() && $registerForm->isValid()){
 
+		    //Recuperation du fichier upload
+            $file = $participant->getPhoto();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('upload_directory'), $fileName);
+            $participant->setPhoto($fileName);
+
 		    //Vérification de l'unicité du pseudo et de l'email
             $participantRepo = $this->getDoctrine()->getRepository(Participant::class);
             $participantDejaExiste = $participantRepo->findByPseudoOrEmail($participant->getPseudo(), $participant->getMail());
@@ -84,6 +90,10 @@ class ParticipantController extends AbstractController
 
         //Récupération de l'utilisateur courant
         $user = $this->getUser();
+        //On récupére le nom de la photo de l'utilisateur
+        $photoUser = $user->getPhoto();
+        //On met le champ photo du user à null pour pouvoir afficher le formulaire
+        $user->setPhoto(null);
 
         $registerForm = $this->createForm(RegisterType::class, $user);
         $registerForm->handleRequest($request);
@@ -92,6 +102,17 @@ class ParticipantController extends AbstractController
             $user->setMotDePasse($password);
             $user->setMotDePasse($password);
             $user->setActif(1);
+
+            //On verifie si l'utilisateur à ajouter une nouvelle photo sinon on replace l'ancienne
+            if($user->getPhoto() == null){
+                $user->setPhoto($photoUser);
+            }else{
+                //Recuperation du fichier upload
+                $file = $user->getPhoto();
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                $file->move($this->getParameter('upload_directory'), $fileName);
+                $user->setPhoto($fileName);
+            }
 
             $site = new Site();
             $site->setNom("ENI-Rennes");

@@ -609,14 +609,14 @@ background: rgba(25, 25, 25, 0.75);*/
 
 #about .about-container .background {
   min-height: 300px;
-  background: url(../img/PhotCvNBmodif800px.jpeg.png) center top no-repeat;
+ /* background: url(../img/PhotCvNBmodif800px.jpeg.png) center top no-repeat;*/
   /*margin-bottom: 10px;*/
   border-radius: 25px 0px 0px 25px;
 }
 
 #about .about-container .content {
   background: #fff;
-  border-radius: 0px 25px 25px 0px;
+  border-radius: 25px 25px 25px 25px;
 }
 
 #about .about-container .title {
@@ -1185,4 +1185,8 @@ legend{
 
 .form-check-label{
   margin-left: 15px;
+}
+
+.photoProfil{
+  border-radius: 25px 25px 25px 25px;
 }

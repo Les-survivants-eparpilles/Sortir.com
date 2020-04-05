@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -24,7 +25,7 @@ class RegisterType extends AbstractType
             ->add('telephone', TextType::class, ['label' => 'Telephone', 'attr' => ['placeholder' => "Le numéro du nouvel utilisateur"]])
             ->add('mail', EmailType::class, ['label' => 'Email', 'attr' => ['placeholder' => "L'adresse email du nouvel utilisateur"]])
             ->add('pseudo', TextType::class, ['label' => 'Pseudo', 'attr' => ['placeholder' => "Le pseudo du nouvel utilisateur"]])
-            ->add('photo', TextType::class, ['label' => 'Photo', 'attr' => ['placeholder' => "La photo du nouvel utilisateur"]])
+            ->add('photo', FileType::class, ['label' => 'Choisir une photo de profil'])
             ->add('motDePasse', RepeatedType::class, [ 'type' => PasswordType::class,
 								                                    'invalid_message' => "Les mots de passes ne sont pas identique!",
 								                                    'first_options' => ['label' => 'Mot de passe'],
