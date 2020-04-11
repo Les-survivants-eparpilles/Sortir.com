@@ -7,8 +7,9 @@ Map de googleMap dans _googleMap inc
 }
 
 .contenu-scroll{
+    margin-top: 0px;
     overflow: scroll;
-    height: 300px;
+    height: 400px;
     background: #c7c7c7;
 }
 
@@ -18,6 +19,7 @@ Map de googleMap dans _googleMap inc
  * Inspiration was taken from:
  * - http://www.premiumpixels.com/freebies/chunky-3d-webbuttons-psd/
  */
+
 
 /**
  * Shadow
@@ -59,8 +61,8 @@ a.button {
     color: #555;
     display: inline-block;
     font: bold 12px Arial, Helvetica, Clean, sans-serif;
-    margin: 0 25px 25px 0;
-    padding: 10px 20px;
+    margin: 0 5px 5px 0;
+    padding: 5px 10px;
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -622,7 +624,7 @@ a.button.dsgnmoo {
     border: solid 1px #be2424;
     border-bottom: solid 3px #bd2524;
     box-shadow: inset 0 0 0 1px #e67e7b;
-    color: #fff;
+    color: #721c24;
     text-shadow: 0 1px 0 #bd2524; }
 
 a.button.dsgnmoo:hover {
@@ -741,17 +743,25 @@ video {
     border-radius: 20px 20px 20px 20px;
     padding-top: 20px;
 }
-
+#rechercheTemporelle{
+    width:30px;
+}
 #checkboxesFiltre label{
     margin-left: 2%;
 }
 
 #checkboxesFiltre div {
     margin: 1%;
+    display: inline-block;
 }
 
 #checkboxesFiltre{
     margin-left: -3%;
+}
+
+.form-check-input{
+    position: initial;
+    margin-top: .3rem;
 }
 
 .container form{

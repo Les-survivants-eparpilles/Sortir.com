@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-0">
     {#Ancienne version#}
     {#    <form id="filtre" class="form-horizontal" role="form" action="../listeSortie">#}
     {#        <h3>Filtrer les sorties</h3>#}
@@ -87,28 +87,45 @@
 
     {#Nouvelle version#}
     {{ form_start(formFiltreRecherche, { "attr" : { "class" : "form-horizontal"}}) }}
-    <div class="container">
-        <h3 style="color: white;">Filtrer les sorties</h3>
+    <div class="container " >
+        <h3 class="text-2xl text-white" >Filtrer les sorties</h3>
+        <div class="row mx-md-n5">
 
+
+            <div class="col px-md-5 mt-4">
         {{ form_widget(formFiltreRecherche.siteId) }}
         <label for="filtre_recherche[recherche]">Le nom de la sortie contient: </label>
         {{ form_widget(formFiltreRecherche.recherche) }}
-        <div class="container" id="rechercheTemporelle">
+            </div>
+
+        <div class="col px-md-5 mb-4" id="rechercheTemporelle">
             <label>Entre le </label>
             {{ form_widget(formFiltreRecherche.dateDebutRecherche) }}
             <label>Et le </label>
             {{ form_widget(formFiltreRecherche.dateFinRecherche) }}
         </div>
 
-        <div class="container" id="checkboxesFiltre">
-        {{ form_widget(formFiltreRecherche.checkOrganisateur) }}
-        {{ form_widget(formFiltreRecherche.checkUserInscrit) }}
-        {{ form_widget(formFiltreRecherche.checkUserPasInscrit) }}
-        {{ form_widget(formFiltreRecherche.checkSortiesPassees) }}
+            <div class="col px-md-2 mt-2">
+                {{ form_widget(formFiltreRecherche.checkOrganisateur) }}
+                {{ form_widget(formFiltreRecherche.checkUserInscrit) }}
+                {{ form_widget(formFiltreRecherche.checkUserPasInscrit) }}
+                {{ form_widget(formFiltreRecherche.checkSortiesPassees) }}
+            </div>
+
+            <div class="col px-md-5">
+                <div class="row">
+                    <div class="col">
+                        <a href="" class="button black float-left text-decoration-none mt-3" target="_blank" type="submit" onclick="this.closest('form').submit();return false;">Rechercher</a>
+                    </div>
+                    <div class=" clearfix col px-md-5">
+                        <a  href="{{ path("gestionEtat_creer") }}" class="button black  float-left text-decoration-none mt-3" target="_blank">Créer une sortie</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 
-        <a href="" class="button devart float-left text-decoration-none mt-3" target="_blank" type="submit" onclick="this.closest('form').submit();return false;">Rechercher</a>
         {{ form_end(formFiltreRecherche) }}
     </div>
 </div>
